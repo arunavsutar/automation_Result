@@ -36,75 +36,61 @@ def get_results(roll):
     student_name_span = driver.find_element(By.XPATH, '//*[@id="lblName"]')
     #fetching the subject grade
 
-    dS_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl02_lblSubCredit"]')
+  
     dS_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl02_lblSubGradePoint"]')
 
-    CSA_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl03_lblSubCredit"]')
     CSA_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl03_lblSubGradePoint"]')
 
-    C_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl04_lblSubCredit"]')
     C_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl04_lblSubGradePoint"]')
 
-    OS_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl05_lblSubCredit"]')
     OS_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl05_lblSubGradePoint"]')
 
-    DB_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl06_lblSubCredit"]')
     DB_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl06_lblSubGradePoint"]')
     
-    C_Lab_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl07_lblSubCredit"]')
+   
     C_Lab_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl07_lblSubGradePoint"]')
 
-    Os_Lab_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl08_lblSubCredit"]')
     Os_Lab_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl08_lblSubGradePoint"]')
 
-    Db_Lab_credit = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl09_lblSubCredit"]')
     Db_Lab_grade  = driver.find_element(By.XPATH,'//*[@id="gvViewResult_ctl09_lblSubGradePoint"]')
  
-
 
     result_span = driver.find_element(By.XPATH, '//*[@id="gvViewResult_ctl10_lblSGPA"]')
 
     
-    print("Registration Number:", reg_no_span.text)
-    print("Student Name:", student_name_span.text)
+    reg_no = reg_no_span.text
+    student_name = student_name_span.text
 
-    print("Subject: Data Structures")
-    print("Credit:", dS_credit.text)
-    print("Grade:", dS_grade.text)
+    ds_grade = dS_grade.text
 
-    print("Subject: Computer System Architecture")
-    print("Credit:", CSA_credit.text)
-    print("Grade:", CSA_grade.text)
-
-    print("Subject: C Programming")
-    print("Credit:", C_credit.text)
-    print("Grade:", C_grade.text)
-
-    print("Subject: Operating Systems")
-    print("Credit:", OS_credit.text)
-    print("Grade:", OS_grade.text)
-
-    print("Subject: Database Management")
-    print("Credit:", DB_credit.text)
-    print("Grade:", DB_grade.text)
-
-    print("Subject: C Lab")
-    print("Credit:", C_Lab_credit.text)
-    print("Grade:", C_Lab_grade.text)
-
-    print("Subject: OS Lab")
-    print("Credit:", Os_Lab_credit.text)
-    print("Grade:", Os_Lab_grade.text)
-
-    print("Subject: DB Lab")
-    print("Credit:", Db_Lab_credit.text)
-    print("Grade:", Db_Lab_grade.text)
-
-    print("Result:", result_span.text)
+    csa_grade = CSA_grade.text
 
 
+    c_grade = C_grade.text
+
+    os_grade = OS_grade.text
+
+
+    db_grade = DB_grade.text
+
+    c_lab_grade = C_Lab_grade.text
+
+
+    os_lab_grade = Os_Lab_grade.text
+
+
+    db_lab_grade = Db_Lab_grade.text
+
+    result = result_span.text
+
+
+    with open('D:\python\\final_result.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([reg_no, student_name,ds_grade,csa_grade,c_grade,
+                         os_grade,db_grade,c_lab_grade,
+                        os_lab_grade,db_lab_grade,result])
     
 roll_number = 2205297085 ;
-for i in range (0,2):
+for i in range (0,1):
     get_results(roll_number + i)
 
