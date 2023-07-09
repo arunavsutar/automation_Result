@@ -90,7 +90,7 @@ def get_results(roll):
                          os_grade,db_grade,c_lab_grade,
                         os_lab_grade,db_lab_grade,result])
     
-roll_number = 2205297085 ;
-for i in range (0,1):
+roll_number = 2205297152 ;
+for i in range (0,20):
     get_results(roll_number + i)
 
