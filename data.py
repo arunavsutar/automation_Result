@@ -1,9 +1,11 @@
 import selenium
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import csv
 import pandas as pd
+s=Service("C:/Users/arunav/OneDrive/Documents/chromedriver.exe")
 
 chrome_options = Options()
 # Run in headless mode without opening a browser window
@@ -26,7 +28,7 @@ def get_data(rollnooo, rng):
     for i in range(rng+1):
         roll = rollnooo+i
 
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome(service=s)
         driver.get(
             'http://www.bputexam.in/studentsection/resultpublished/studentresult.aspx')
 
